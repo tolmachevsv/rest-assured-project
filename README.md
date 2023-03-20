@@ -1,1 +1,1 @@
-# rest-assured-project
+Project with 5 rest-assured tests
