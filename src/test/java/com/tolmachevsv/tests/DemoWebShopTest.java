@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Selectors.byValue;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static com.tolmachevsv.filters.CustomLogFilter.customLogFilter;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
@@ -18,15 +19,16 @@ public class DemoWebShopTest {
 
     @Test
     public void addToCartTest() {
-        // chrome doesn't start without this property
-        System.setProperty("chromeoptions.args", "--remote-allow-origins=*");
         step("Get cookie by api to set it for browser", () -> {
             String addingCookie =
                     given().
+                            filter(customLogFilter().withCustomTemplates()).
                             contentType("application/json; charset=utf-8").
                             body("").
                             cookie("Nop.customer", "df01a09c-d858-4781-a620-52c3d7aecf06").
                             when().
+                            log().uri().
+                            log().body().
                             get("https://demowebshop.tricentis.com").
                             then().
                             statusCode(200).
