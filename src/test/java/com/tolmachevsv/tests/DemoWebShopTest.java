@@ -14,7 +14,7 @@ import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
-public class DemoWebShopTest {
+public class DemoWebShopTest extends TestBase {
 
     @Test
     public void addToCartTest() {
