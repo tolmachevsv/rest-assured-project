@@ -23,7 +23,7 @@ public class DriverSettings {
         Configuration.browserCapabilities = capabilities;
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         // chrome doesn't start without this property
-        System.setProperty("chromeoptions.args", "--remote-allow-origins=*");
+//        System.setProperty("chromeoptions.args", "--remote-allow-origins=*");
         String url = System.getProperty("selenoidUrl", "selenoid.autotests.cloud/wd/hub");
         Configuration.remote = format("https://%s:%s@%s", loginSelenoid, passwordSelenoid, url);
     }

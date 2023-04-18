@@ -49,7 +49,7 @@ public class DemoWebShopTest {
 
         step("Add item in the cart and check if counter increases by 1", () -> {
         given().
-                contentType("application/json; charset=utf-8\"").
+                contentType("application/json; charset=utf-8").
                 body("").
                 cookie("Nop.customer", "df01a09c-d858-4781-a620-52c3d7aecf06").
                 when().
